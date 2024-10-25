@@ -167,3 +167,7 @@ inner join person p
 | 99716 | 1143 | SQL Symphony Concert | 20171206 | Miranda Priestly | 2022981883 | Golden Ave | 987756388 | 99716 |
 | 99716 | 1143 | SQL Symphony Concert | 20171212 | Miranda Priestly | 2022981883 | Golden Ave | 987756388 | 99716 |
 | 99716 | 1143 | SQL Symphony Concert | 20171229 | Miranda Priestly | 2022981883 | Golden Ave | 987756388 | 99716 |
+
+USing the information in Jeremy Bowers transcript "I know that she attended the SQL Symphony Concert 3 times in December 2017." We can confirm that the mystery woman is Miranda Priestly
+
+We have solved the murder in SQL City!
