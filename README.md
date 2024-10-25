@@ -35,7 +35,9 @@ from person
 where address_street_name like '%Northwestern Dr%'
 ````
 This returns us the details of witness 1
-Name = Morty Schapiro, id = 14887, license_id = 118009, ssn = 111564949
+| id | name | license_id | address_number | address_street_name | ssn |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| 14887 | Morty Schapiro | 118009 | 4919 | Northwestern Dr | 111564949 |
 
 ### Step 2.2
 Finding Witness 2
@@ -46,7 +48,9 @@ where name like '%Annabel%'
 	and address_street_name = 'Franklin Ave'
 ````
 This returns us the details of witness 2
-Name = Annabel Miller, id = 16371, license_id = 490173, ssn = 318771143
+| id | name | license_id | address_number | address_street_name | ssn |
+| ---- | ---- | ---- | ---- | ---- | ---- |
+| 16371 | Annabel Miller | 490173 | 103 | Franklin Ave | 318771143 |
 
 ### Step 3
 Now that we have the person ids of the two witnesses we can see what they said in their witness interview
@@ -60,6 +64,7 @@ or person_id = 14887
 | ---- | ---- |
 |14887|I heard a gunshot and then saw a man run out. He had a "Get Fit Now Gym" bag. The membership number on the bag started with "48Z". Only gold members have those bags. The man got into a car with a plate that included "H42W".|
 |16371|	I saw the murder happen, and I recognized the killer from my gym when I was working out last week on January the 9th.|
+
 From the witness interview transcripts we find out the following details about the murder:
 - They had a "Get Fit Now Gym Bag"
 - The membership number on their bag started with 48Z, hence they are a gold member
