@@ -10,6 +10,15 @@ The challange gives us some details abotut the crime:
 - it was a murder
 - it took place in SQL City
 
+````sql
+select *
+from crime_scene_report
+where date = 20180115
+	and city = 'SQL City'
+	and type = 'murder'
+````
+
+
 Using this information the below script shows us how mamy witness' there are. 
 | Witness | Details |
 | ----- | ----- |
