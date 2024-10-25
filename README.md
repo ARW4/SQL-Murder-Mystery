@@ -129,3 +129,41 @@ from interview
 where person_id = 67318
 ````
 | Person ID | transcript |
+| ---- | ---- |
+| 67318 | I was hired by a woman with a lot of money. I don't know her name but I know she's around 5'5" (65") or 5'7" (67"). She has red hair and she drives a Tesla Model S. I know that she attended the SQL Symphony Concert 3 times in December 2017. |
+
+We now know that Jeremy Bowers was paid by a mystery woman to commit the murder.
+
+### Step 7
+USing the information from the murderers interview to find the mystery woman
+````sql
+select *
+from drivers_license
+where car_make = 'Tesla'
+and car_model = 'Model S'
+and gender = 'female'
+and hair_color = 'red'
+and height between 65 and 67
+````
+| id | age | height | eye_color | hair_color | gender | plate_number | car_make | car_model |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 202298 | 68 | 66 | green | red | female | 500123 | Tesla | Model S |
+| 291182 | 65 | 66 | blue | red | female | 08CM64 | Tesla | Model S |
+| 918773 | 48 | 65 | black | red | female | 917UU3 | Tesla | Model S |
+
+We have no narrowed down the mystery woman to three license IDs.
+
+### Step 8
+Now that we have the three possible License IDs we can search the facebook_event_checkin table
+````sql
+select *
+from facebook_event_checkin fb
+inner join person p 
+	on fb.person_id = p.id
+	where license_id in (202298, 291182, 918773)
+````
+| person_id | event_id | event_name | date_id | name | license_id | address_number | address_street_name | SSN |
+|----|----|----|----|----|----|----|----|----|
+| 99716 | 1143 | SQL Symphony Concert | 20171206 | Miranda Priestly | 2022981883 | Golden Ave | 987756388 | 99716 |
+| 99716 | 1143 | SQL Symphony Concert | 20171212 | Miranda Priestly | 2022981883 | Golden Ave | 987756388 | 99716 |
+| 99716 | 1143 | SQL Symphony Concert | 20171229 | Miranda Priestly | 2022981883 | Golden Ave | 987756388 | 99716 |
