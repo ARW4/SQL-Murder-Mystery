@@ -11,6 +11,7 @@ The challange gives us some details abotut the crime:
 - it took place in SQL City
 
 Using this information the below script shows us how mamy witness' there are. 
-|Witness|Details|
-|1|Lives at the last house on "Northwestern Dr"|
-|2|Name is Annabel, lives somewhere on "Franklin Ave"|
+|vWitnessv| Details |
+| ----- | ----- |
+| 1 | Lives at the last house on "Northwestern Dr" |
+| 2 | Name is Annabel, lives somewhere on "Franklin Ave" |
