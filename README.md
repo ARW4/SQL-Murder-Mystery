@@ -74,4 +74,5 @@ and check_in_date = 20180109
 | ---- | ---- | ----- | ---- |
 |48Z7A|20180109|1600|1730|
 |48Z55|20180109|1530|1700|
+
 this query returns only two records, We have narrowed the murderer to two membership ID's ()
