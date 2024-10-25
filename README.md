@@ -16,7 +16,7 @@ where date = 20180115
 	and city = 'SQL City'
 	and type = 'murder'
 ````
-Using this information the below script shows us how mamy witness' there are. 
+The script above gives us the information of two of the witnesses
 | Witness | Details |
 | ----- | ----- |
 | 1 | Lives at the last house on "Northwestern Dr" |
@@ -79,9 +79,53 @@ from get_fit_now_check_in
 where membership_id like '48Z%'
 and check_in_date = 20180109
 ````
+We now have two possible murderers
 | membership_id | check_in_date | check_in_time | check_out_time | 
 | ---- | ---- | ----- | ---- |
 |48Z7A|20180109|1600|1730|
 |48Z55|20180109|1530|1700|
 
-this query returns only two records, We have narrowed the murderer to two membership ID's ()
+### Step 5
+Using the membership IDs found in the previous step to search the members table for member details
+````sql
+select *
+from get_fit_now_member
+where id = '48Z55'
+or id = '48Z7A'
+````
+
+| id | person_id | name | membership_start_date | membership_status |
+| ---- | ---- | ---- | ---- | ---- |
+| 48Z55 | 67318 | Jeremy Bowers | 20160101 | gold |
+| 48Z7A | 28819 | Joe Germuska | 20160305 | gold |
+
+We now have further details of the potential murder
+
+### Step 6 
+Now that we have the person_id of the murderer we can now cross reference to the information we have about the murderers number plate
+
+````sql
+select p.name
+from person p
+inner join (select id as License_id
+	,plate_number
+from drivers_license) dl
+on dl.license_id = p.license_id
+
+where id = 67318 and plate_number like '%H42W%'
+or id = 28819 and plate_number like '%H42W%'
+````
+
+| Murderer | ID |
+| ---- | ---- | 
+|Jeremy Bowers | 67318 |
+
+We have found the murderer!
+
+However if we look at Jeremy Bowers interview transcript
+````sql
+select *
+from interview
+where person_id = 67318
+````
+| Person ID | transcript |
